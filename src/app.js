@@ -6,6 +6,7 @@ dotenv.config();
 import './database';
 import cors from 'cors';
 // import helmet from 'helmet';
+import delay from 'express-delay';
 
 import express from 'express';
 import homeRoutes from './routes/homeRoutes';
@@ -37,6 +38,7 @@ class App {
   middlewares() {
     this.app.use(cors(corsOptions));
     // this.app.use(helmet({ crossOriginEmbedderPolicy: false }));
+    this.app.use(delay(2000));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
