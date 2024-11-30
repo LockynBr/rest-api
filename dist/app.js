@@ -6,7 +6,6 @@ _dotenv2.default.config();
 require('./database');
 var _cors = require('cors'); var _cors2 = _interopRequireDefault(_cors);
 // import helmet from 'helmet';
-var _expressdelay = require('express-delay'); var _expressdelay2 = _interopRequireDefault(_expressdelay);
 
 var _express = require('express'); var _express2 = _interopRequireDefault(_express);
 var _homeRoutes = require('./routes/homeRoutes'); var _homeRoutes2 = _interopRequireDefault(_homeRoutes);
@@ -16,7 +15,7 @@ var _alunoRoutes = require('./routes/alunoRoutes'); var _alunoRoutes2 = _interop
 var _photoRoutes = require('./routes/photoRoutes'); var _photoRoutes2 = _interopRequireDefault(_photoRoutes);
 
 // Permição de dominios
-const whiteList = ['http://localhost:3000'];
+const whiteList = ['http://localhost:3000', 'http://34.95.176.11:82'];
 
 const corsOptions = {
   origin(origin, callback) {
@@ -38,7 +37,6 @@ class App {
   middlewares() {
     this.app.use(_cors2.default.call(void 0, corsOptions));
     // this.app.use(helmet({ crossOriginEmbedderPolicy: false }));
-    this.app.use(_expressdelay2.default.call(void 0, 2000));
     this.app.use(_express2.default.urlencoded({ extended: true }));
     this.app.use(_express2.default.json());
     this.app.use('/images/', _express2.default.static(_path.resolve.call(void 0, __dirname, '..', 'uploads', 'images')));

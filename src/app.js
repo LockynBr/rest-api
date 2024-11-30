@@ -15,7 +15,7 @@ import alunoRoutes from './routes/alunoRoutes';
 import photoRoutes from './routes/photoRoutes';
 
 // Permição de dominios
-const whiteList = ['http://localhost:3000'];
+const whiteList = ['http://localhost:3000', 'http://34.95.176.11:82'];
 
 const corsOptions = {
   origin(origin, callback) {
